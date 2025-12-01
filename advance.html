@@ -34,19 +34,26 @@
         top: -20px;
         right: 140px;
     }
-
-    .med {
-        border: none;
-        border-radius: 5px;
-        background-color: rgb(38, 52, 245);
-        color: white;
-        text-align: left;
+    details {
+        font-family: sans-serif;
         font-size: 20px;
-        position: relative;
-        width: 350px;
-        height: 250px;
-        box-shadow: 3px 4px 8px black;
     }
+
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .plans {
+        text-align: left;
+        margin: 0;
+        padding-left: 550px;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+
 </style>
 
 <body style="background-color: rgb(255, 255, 255);">
@@ -55,34 +62,35 @@
             <button class="but3">?</button>
         </a>
         <div class="feet">
-            <a href="patient-hello.html">
-                <button class="but2">Home</button>
+            <a href="health.html">
+                <button class="but2">Back</button>
             </a>
-        <br>
-        <br>
-        <br>
-        <h1 style="font-size: 35px; position: relative; right: 15px; font-family: sans-serif;"><u>Emergency <br> contacts</u>
-        </h1>
-        <br>
-        <div class="deets" style="text-align: left; margin: 0; padding-left: 550px; font-size: 20px; font-family: Arial, Helvetica, sans-serif;">
-            <p><u>Wife: Lizzy</u></p>
-            <p>Phone: 0123456789</p>
-            <br>
-            <p><u>Brother: Jack Mart</u></p>
-            <p>Phone: 0123456789</p>
-            <br>
-            <p><u>Sister: Lou Jane</u></p>
-            <p>Phone: 0123456789</p>
-            <br>
-            <p><u>Friend 1: Micheal</u></p>
-            <p>Phone: 0123456789</p>
-            <br>
-            <p><u>Friend 2: Macbook</u></p>
-            <p>Phone: 0123456789</p>
         </div>
         <br>
         <br>
         <br>
+        <br>
+        <h1 style="font-size: 35px; text-align: center; font-family: sans-serif;"><u>Advanced care</u>
+        </h1>
+        <br>
+        <br>
+        <div class="items" style="font-family: sans-serif; font-size: 20px;">
+            <div class="plans">
+                <p><u>DNR status</u></p>
+        <p>Not in place, resuscitate when <br> neccessary</p>
+        <br>
+         <p><u>Organ donor status</u></p>
+        <p>Donate organs to medicine</p>
+        <br>
+        <p><u>Advanced directive</u></p>
+        <p>In case of sudden rush to medical <br> center</p>
+        <details>
+            <summary>Show</summary>
+            <p>Call wife: 123456789</p>
+            <p>Pack overnight bag</p>
+            <p>pack medication to last 2 days</p>
+        </details>
+    </div>
 </body>
 
 </html>
