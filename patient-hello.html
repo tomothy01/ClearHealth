@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical ID</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        /* Fluid App Container */
+        .app-container {
+            width: 100%;
+            max-width: 480px;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        /* Header Area */
+        .app-header h2 {
+            font-size: 45px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 40px;
+            margin-top: 10px;
+        }
+
+        /* Structured Card */
+        .info-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            margin-bottom: 50px;
+            border: 1px solid #eaeaea;
+        }
+
+        .profile-name {
+            font-size: 30px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 15px;
+        }
+
+        .info-row .label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .info-row .value {
+            color: #111;
+            font-weight: 600;
+        }
+
+        /* Action Buttons Stack */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .app-btn {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: #1a73e8;
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(43, 76, 95, 0.15);
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .app-btn:hover {
+            background-color: #1e3543;
+        }
+
+        .app-btn:active {
+            transform: scale(0.98);
+        }
+
+        .emergency-btn {
+            background-color: #1a73e8;
+        }
+
+        .info-dropdown {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 10px 0;
+}
+
+.info-dropdown summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.info-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.info-dropdown .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-right: 8px;
+    font-size: 11px;
+    color: #666;
+}
+
+.info-dropdown[open] .arrow {
+    transform: rotate(90deg);
+}
+
+.dropdown-content {
+    padding: 10px 0 5px;
+    color: #111;
+    font-weight: 600;
+    font-size: 15px;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        
+        <!-- Header -->
+        <div class="app-header">
+            <h2>Hey there!</h2>
+        </div>
+
+        <!-- Main Info Card -->
+        <div class="info-card">
+            <div class="profile-name">Tim Cook</div>
+            
+            <div class="info-row">
+                <span class="label">DOB</span>
+                <span class="value">26/12/2003</span>
+            </div>
+
+            <details class="info-dropdown">
+                <summary>
+                    <span class="label">NHS number</span>
+                    <span class="value" style="color: #666; font-weight: 400; font-size: 13px;">Tap to view</span>
+                </summary>
+                <div class="dropdown-content">
+                    485 582 3891
+                </div>
+            </details>
+
+            <div class="info-row">
+                <span class="label">Blood Type</span>
+                <span class="value">A-negative</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Gender</span>
+                <span class="value">Male</span>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <a href="allergy.html">
+            <button class="app-btn">Allergies</button>
+        </a>
+        <a href="medication.html">
+            <button class="app-btn">Medication</button>
+        </a>
+            <a href="vac.html">
+            <button class="app-btn">Vaccinations</button>
+        </a>
+            <a href="emecont.html">
+            <button class="app-btn emergency-btn">Emergency Contacts</button>
+        </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
