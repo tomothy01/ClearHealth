@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Medical App - Allergies</title>
+    <title>Medical ID</title>
     <style>
+        /* Reset & Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -13,229 +14,155 @@
         }
 
         body {
-            background-color: #f0f2f5;
+            background-color: #f4f6f8;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            padding: 20px 0;
         }
 
-        /* Mobile App Frame */
+        /* Fluid App Container */
         .app-container {
             width: 100%;
-            max-width: 414px;
-            height: 100%;
-            max-height: 896px;
-            background-color: #ffffff;
+            max-width: 480px;
+            background-color: transparent;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            position: relative;
+            padding: 20px;
         }
 
-        /* App Top Header Bar */
-        .app-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 20px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e1e4e8;
-        }
-
-        .back-btn, .help-btn {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .help-btn {
-            width: 32px;
-            height: 32px;
-            background-color: #2979ff;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(41, 121, 255, 0.4);
-        }
-
-        /* Scrollable Content Area */
-        .content-scroll {
-            flex: 1;
-            overflow-y: auto;
-            padding: 15px;
-        }
-
-        /* Section Styling */
-        .medical-section {
+        /* Header Area */
+        .app-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111;
             margin-bottom: 20px;
+            margin-top: 10px;
         }
 
-        .section-title-bar {
-            background-color: #1a73e8;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 8px 12px;
-            border-radius: 4px 4px 0 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-block;
-            margin-bottom: -1px;
+        /* Structured Card */
+        .info-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            margin-bottom: 24px;
+            border: 1px solid #eaeaea;
         }
 
-        /* Individual Allergy Item Container */
-        .item-container {
-            margin-bottom: 15px;
+        .profile-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        /* Static Header for Item */
-        .item-header {
-            background-color: #e8eaed;
-            padding: 10px 15px;
-            font-weight: bold;
-            font-size: 14px;
-            color: #202124;
-            border: 1px solid #dcdfe4;
-            border-radius: 6px 6px 0 0;
-        }
-
-        /* Card Content Box */
-        .section-card {
-            background-color: #f4f5f7;
-            border: 1px solid #dcdfe4;
-            border-top: none;
-            border-radius: 0 0 6px 6px;
-            overflow: hidden;
-        }
-
-        .data-row {
+        .info-row {
             display: flex;
-            padding: 10px 15px;
-            border-bottom: 1px solid #e1e4e8;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 15px;
         }
 
-        .data-row:last-child {
-            border-bottom: none;
+        .info-row .label {
+            color: #666;
+            font-weight: 500;
         }
 
-        .data-group {
-            flex: 1;
+        .info-row .value {
+            color: #111;
+            font-weight: 600;
+        }
+
+        /* Action Buttons Stack */
+        .button-group {
             display: flex;
             flex-direction: column;
+            gap: 12px;
         }
 
-        .data-label {
-            font-size: 10px;
-            color: #5f6368;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
+        .app-btn {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: #2b4c5f;
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(43, 76, 95, 0.15);
+            transition: background-color 0.2s, transform 0.1s;
         }
 
-        .data-value {
-            font-size: 13px;
-            color: #202124;
+        .app-btn:hover {
+            background-color: #1e3543;
+        }
+
+        .app-btn:active {
+            transform: scale(0.98);
+        }
+
+        .emergency-btn {
+            background-color: #1d3557;
         }
     </style>
 </head>
 <body>
 
+    <!-- Main Container -->
     <div class="app-container">
+        
         <!-- Header -->
         <div class="app-header">
-            <button class="back-btn" onclick="goBack()">&#8592;</button>
-            <button class="help-btn" onclick="openHelp()">?</button>
+            <h2>Hey there!</h2>
         </div>
 
-        <!-- Scrollable Body -->
-        <div class="content-scroll">
-            <div class="medical-section">
-                <div class="section-title-bar">Allergies</div>
+        <!-- Main Info Card -->
+        <div class="info-card">
+            <div class="profile-name">Tim Cook</div>
+            
+            <div class="info-row">
+                <span class="label">DOB</span>
+                <span class="value">26/12/2003</span>
+            </div>
 
-                <!-- Allergy Item 1: Nuts -->
-                <div class="item-container">
-                    <div class="item-header">Nuts</div>
-                    <div class="section-card">
-                        <div class="data-row">
-                            <div class="data-group">
-                                <span class="data-label">ALLERGY TYPE:</span>
-                                <span class="data-value">All nuts</span>
-                            </div>
-                            <div class="data-group">
-                                <span class="data-label">DIAGNOSED:</span>
-                                <span class="data-value">12/04/2016</span>
-                            </div>
-                        </div>
-                        <div class="data-row">
-                            <div class="data-group">
-                                <span class="data-label">MEDICATION:</span>
-                                <span class="data-value">Epipen</span>
-                            </div>
-                            <div class="data-group">
-                                <span class="data-label">DATE OF PRESCRIPTION:</span>
-                                <span class="data-value">12/04/2026</span>
-                            </div>
-                        </div>
-                        <div class="data-row">
-                            <div class="data-group">
-                                <span class="data-label">PRESCRIBED BY:</span>
-                                <span class="data-value">Dr Smith</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="info-row">
+                <span class="label">NHS Number</span>
+                <span class="value"><span>&#9658;</span> Hidden</span>
+            </div>
 
-                <!-- Allergy Item 2: Penicillin -->
-                <div class="item-container">
-                    <div class="item-header">Penicillin</div>
-                    <div class="section-card">
-                        <div class="data-row">
-                            <div class="data-group">
-                                <span class="data-label">ALLERGY TYPE:</span>
-                                <span class="data-value">Penicillin</span>
-                            </div>
-                            <div class="data-group">
-                                <span class="data-label">DIAGNOSED:</span>
-                                <span class="data-value">--/--/----</span>
-                            </div>
-                        </div>
-                        <div class="data-row">
-                            <div class="data-group">
-                                <span class="data-label">MEDICATION:</span>
-                                <span class="data-value">None</span>
-                            </div>
-                            <div class="data-group">
-                                <span class="data-label">DATE OF PRESCRIPTION:</span>
-                                <span class="data-value">--/--/----</span>
-                            </div>
-                        </div>
-                        <div class="data-row">
-                            <div class="data-group">
-                                <span class="data-label">PRESCRIBED BY:</span>
-                                <span class="data-value">--</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="info-row">
+                <span class="label">Blood Type</span>
+                <span class="value">A-negative</span>
+            </div>
 
+            <div class="info-row">
+                <span class="label">Gender</span>
+                <span class="value">Male</span>
             </div>
         </div>
+
+        <div class="button-group">
+            <a href="allergy.html">
+            <button class="app-btn">Allergies</button>
+        </a>
+        <a href="medication.html">
+            <button class="app-btn">Medication</button>
+        </a>
+            <a href="vac.html">
+            <button class="app-btn">Vaccinations</button>
+        </a>
+            <a href="emecont.html">
+            <button class="app-btn emergency-btn">Emergency Contacts</button>
+        </a>
+        </div>
+
     </div>
 
-    <script>
-        function goBack() {
-            alert("Back button clicked: Navigating to previous menu.");
-        }
-
-        function openHelp() {
-            alert("Help button clicked: Opening medical support dialog.");
-        }
-    </script>
 </body>
 </html>
